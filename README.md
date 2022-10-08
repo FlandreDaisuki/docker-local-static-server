@@ -7,8 +7,7 @@ A local static server expose to the internet
 ```shell
 docker run --rm -it \
   -v "${PWD}:/root/www:ro" \
-  ghcr.io/flandredaisuki/docker-local-static-server \
-  npm run start
+  ghcr.io/flandredaisuki/docker-local-static-server
 ```
 
 or make it an alias
@@ -18,6 +17,5 @@ or make it an alias
 
 alias ngrok-alt='docker run --rm -it \
   -v "${PWD}:/root/www:ro" \
-  ghcr.io/flandredaisuki/docker-local-static-server \
-  npm run start'
+  ghcr.io/flandredaisuki/docker-local-static-server'
 ```
