@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  docker-local-static-server:
+    image: ghcr.io/flandredaisuki/docker-local-static-server
+    build: .
+    environment:
+      - PORT=${PORT:-3000}
+    working_dir: /root
+    volumes:
+      - "${PWD}:/root/www:ro"
