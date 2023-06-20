@@ -4,8 +4,5 @@ services:
   docker-local-static-server:
     image: ghcr.io/flandredaisuki/docker-local-static-server
     build: .
-    environment:
-      - PORT=${PORT:-8080}
-    working_dir: /root
     volumes:
-      - "${PWD}:/root/www:ro"
+      - "${PWD}:/usr/share/nginx/html:ro"

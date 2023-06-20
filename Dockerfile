@@ -1,18 +1,12 @@
-FROM python:3.11.3-slim
+FROM nginx:1.25.1-alpine
 
-VOLUME [ "/root/www" ]
+VOLUME [ "/usr/share/nginx/html" ]
 
-WORKDIR /root
-
-ENV PORT=8080
-
-RUN apt-get update \
- && apt-get install -y curl \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/* \
+RUN apk add curl --no-cache \
  && curl -L https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o /usr/local/bin/cloudflared \
  && chmod +x /usr/local/bin/cloudflared
 
 COPY start.sh /root
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-CMD [ "/bin/bash", "/root/start.sh" ]
+CMD [ "/bin/sh", "/root/start.sh" ]
