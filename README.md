@@ -2,7 +2,7 @@
 
 A local static server expose to the internet with cloudflared tunnel
 
-## usage
+## Usage
 
 ### nginx-spa
 
@@ -27,3 +27,13 @@ docker run --rm -it \
   -v "${PWD}:/www:ro" \
   ghcr.io/flandredaisuki/dlss:darkhttpd-1.0.0
 ```
+
+## Comparison
+
+||darkhttpd|python3|nginx-spa|
+|-|:-:|:-:|:-:|
+|directory listing|✅|✅|❌|
+|SPA supports|❌|❌|✅|
+|image size (1.0.0) |🥇(48.4 MB)|🥉(97.7 MB)|🥈(85 MB)|
+
+<!-- cspell:ignore darkhttpd cloudflared -->
