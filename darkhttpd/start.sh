@@ -4,7 +4,7 @@ set -e
 
 cloudflared update
 
-darkhttpd /www --port "${PORT:-8080}" &
+darkhttpd /www --mimetypes /etc/darkhttpd/mime.types --port "${PORT:-8080}" &
 PID1="$!"
 
 # tunnel
