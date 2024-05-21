@@ -5,7 +5,8 @@ ENV PORT=8080
 RUN apk add --no-cache curl darkhttpd \
   && curl -sL https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o /usr/local/bin/cloudflared \
   && chmod +x /usr/local/bin/cloudflared \
-  && mkdir -p /www /etc/darkhttpd
+  && mkdir -p /www /etc/darkhttpd \
+  && cloudflared update
 
 COPY start.sh /
 COPY mime.types /etc/darkhttpd/

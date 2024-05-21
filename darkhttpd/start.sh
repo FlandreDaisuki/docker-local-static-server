@@ -2,8 +2,6 @@
 
 set -e
 
-cloudflared update
-
 darkhttpd /www --mimetypes /etc/darkhttpd/mime.types --port "${PORT:-8080}" &
 PID1="$!"
 

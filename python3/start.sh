@@ -2,8 +2,6 @@
 
 set -e
 
-cloudflared update
-
 # http server
 python -m http.server -d /www "${PORT:-8080}" &
 PID1="$!"
