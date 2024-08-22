@@ -9,7 +9,7 @@ A local static server expose to the internet with cloudflared tunnel
 ```shell
 docker run --rm -it \
   -v "${PWD}:/www:ro" \
-  ghcr.io/flandredaisuki/dlss:nginx-spa-1.0.0
+  ghcr.io/flandredaisuki/dlss:nginx-spa-1.0.1
 ```
 
 ### python3
@@ -17,7 +17,7 @@ docker run --rm -it \
 ```shell
 docker run --rm -it \
   -v "${PWD}:/www:ro" \
-  ghcr.io/flandredaisuki/dlss:python3-1.0.0
+  ghcr.io/flandredaisuki/dlss:python3-1.0.1
 ```
 
 ### darkhttpd
@@ -25,7 +25,7 @@ docker run --rm -it \
 ```shell
 docker run --rm -it \
   -v "${PWD}:/www:ro" \
-  ghcr.io/flandredaisuki/dlss:darkhttpd-1.0.0
+  ghcr.io/flandredaisuki/dlss:darkhttpd-1.0.2
 ```
 
 ## Comparison
