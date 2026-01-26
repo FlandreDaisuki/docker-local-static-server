@@ -1,9 +1,14 @@
-FROM alpine:3.19.1
+ARG ALPINE_TAG=3.22.1
+FROM alpine:${ALPINE_TAG}
+
+ARG TARGETOS
+ARG TARGETARCH
 
 ENV PORT=8080
+ENV CLOUDFLARED_VERSION='2026.1.1'
 
 RUN apk add --no-cache curl darkhttpd \
-  && curl -sL https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o /usr/local/bin/cloudflared \
+  && curl -sL "https://github.com/cloudflare/cloudflared/releases/download/${CLOUDFLARED_VERSION}/cloudflared-${TARGETOS}-${TARGETARCH}" -o /usr/local/bin/cloudflared \
   && chmod +x /usr/local/bin/cloudflared \
   && mkdir -p /www /etc/darkhttpd \
   && cloudflared update
